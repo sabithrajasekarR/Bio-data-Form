@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { datas } from "./formlogic";
+import { datas2 } from "./formlogic";
 
 function Page2() {
     const history = useHistory()
     const dispatch = useDispatch()
-    const [form, setform] = useState({
+    const [form2, setform] = useState({
         institue: "",
         start: "",
         end: "",
@@ -23,50 +23,42 @@ function Page2() {
         }
     )
     function handler(e) {
-        let obj = { ...form };
+        let obj = { ...form2 };
         obj[e.target.name] = e.target.value
         setform(obj)
-        let obj1 = {}
-        for (let props in form) {
 
-            if (form[props].trim().length == 0) {
-                obj1[props + 'Err'] = "Fill the above field "
-
-
-
-            }
-
-            else {
-                obj1[props + 'Err'] = " "
-
-            }
-            setError(obj1)
-        }
     }
     function checkvalue(e) {
         e.preventDefault()
         let errorobj = {}
-        for (let props in form) {
-            if (form[props].trim().length <= 0) {
+        for (let props in form2) {
+            if (form2[props].trim().length <= 0) {
                 errorobj[props + 'Err'] = "Fill the above field"
                 console.log(props);
-
             }
 
             else {
                 errorobj[props + 'Err'] = ""
-                history.push('/page3')
             }
+        }
 
+        setError(errorobj)
+        let checkarray = Object.values(errorobj)
+        let checkfilter = checkarray.filter((e) => {
+            return e.length
+        })
+        if (checkfilter.length == 0) {
+            history.push('/page3')
+            dispatch(datas2(form2))
+        }
+        else {
+            alert('Fill all the field')
 
         }
-        dispatch(datas(form))
-        setError(errorobj)
     }
 
     return (
         <>
-    
             <h1>Education information</h1>
             <form className="form-main">
                 <label>Institute Name</label>
@@ -76,9 +68,8 @@ function Page2() {
                 <input type='date' name="start" onChange={(e) => { handler(e) }}></input>
                 <h3>{error.startErr}</h3>
                 <label>End Date</label>
-
                 <input type='date' name="end" onChange={(e) => { handler(e) }}></input>
-                <small>optional if it's currently pursuing institute/college</small>
+                <small>*optional if it's currently pursuing institute/college</small>
                 <h3>{error.endErr}</h3>
                 <label> Degree</label>
                 <input type='text' placeholder="Enter your degree name" name="degree" onChange={(e) => { handler(e) }} />

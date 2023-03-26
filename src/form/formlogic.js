@@ -3,9 +3,8 @@ import {createSlice} from '@reduxjs/toolkit'
 export const slice = createSlice({
     name:"formdata",
     initialState:{
-        item:[
-            
-        ]
+        
+        item:[]
     }
     ,
     reducers:{
@@ -14,12 +13,24 @@ export const slice = createSlice({
                 state.item.push(action.payload)
         
                
-        }
+        },
+        datas2:(state,action)=>{
+            
+            state.item.push(action.payload)
+    
+           
+    },datas3:(state,action)=>{
+            
+        state.item.push(action.payload)
+
+       
+}
+
         
     }
 })
 
 
-export const {datas} = slice.actions
-export const prod = (state)=> state.formdata.item
+export const {datas,datas2,datas3} = slice.actions
+export let prod = (state)=> state.formdata.item
 export default slice.reducer
