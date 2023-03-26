@@ -1,0 +1,53 @@
+*{
+    /* background-color: linear-gradient(to right,rgb(255, 247, 3),rgb(250, 229, 34),rgb(255, 255, 0)) */
+    background-color: yellow;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fpink-background&psig=AOvVaw1rr5F7_dY65ow1RCQlyeld&ust=1679924690148000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCPDPgdvd-f0CFQAAAAAdAAAAABAE");
+}
+.form-main{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+   
+    padding: 10px;
+ 
+}
+small{
+    padding: 10px;
+    text-align: center;
+}
+
+.form-main label{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+.form-main input{
+    width: 500px;
+    height: 25px;
+   
+ 
+    border: 0px 0px 5px 0px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+h1{
+    text-align: center;
+}
+
+button{
+    width: 120px;
+    height: 35px;
+    border-radius: 15px;
+    border: 2px solid ;
+    background-color: rgb(25, 77, 233);
+    color: white;
+    font-weight: bold;
+    
+}
+
+.first-btn{
+  margin: auto;
+}
